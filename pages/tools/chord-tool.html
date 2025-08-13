@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <div id="heads"></div>
+
+    <title>Chord Tool</title>
+
+    <link rel="stylesheet" href="/css/chord-styles.css">
+
+
+</head>
+
+<body>
+
+    <!--Barre de Navigation du haut-->
+    <div id="header"></div>
+
+    <div class="container">
+        <h1 class="title">Outil d'Accords</h1>
+
+        <div class="top-cards-container">
+            <div class="left-column-content">
+                <div class="search-area">
+                    <label for="search-input">Rechercher un accord :</label>
+                    <input type="text" id="search-input" placeholder="Entrez le nom de l'accord">
+                    <label>
+                        <input type="checkbox" id="exclude-sharps"> Exclure les dièses (#)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="exclude-flats"> Exclure les bémols (b)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="exclude-naturals"> Exclure les bécarres (♮)
+                    </label>
+                </div>
+
+                <div class="chord-list">
+                    <h2>Liste des accords</h2>
+                    <div class="collapsible-list" id="chord-list-container">
+                        <ul id="chord-list">
+                        </ul>
+                    </div>
+                    <button id="toggle-list-button">Afficher plus</button>
+                </div>
+            </div>
+
+            <div class="list-chord-details">
+                <div class="list-chords-details-container">
+                    <h2>Détails de l'accord de la liste</h2>
+                    <p><strong>Accord :</strong> <span id="lcd-chord-chord"></span></p>
+                    <p><strong>Notes :</strong> <span id="lcd-chord-notes"></span></p>
+                    <p><strong>Description :</strong> <span id="lcd-chord-description"></span></p>
+                </div>
+                <div class="lcd-controls">
+                    <div class="lcd-flex">
+                        <button id="lcd-play-button">Jouer l'accord</button>
+                        <label class="play-time-duration-label">Durée de jeu en secondes
+                            <div class="play-time-duration">
+                                <input type="text" id="lcd-play-duration">
+                            </div>
+                        </label>
+                        <button id="lcd-play-stop">Arrêter l'accord</button>
+                    </div>
+                    <div class="volume-slider">
+                        <input type="range" id="lcd-volume-slider" min="0" max="1" step="0.01" value="0.7">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" card" id="my-card">
+            <div class="resizer" id="right-resizer"></div>
+            <div class="note-selector">
+
+                <div class="note-selector-content">
+                    <h2>Trouver un accord par notes</h2>
+                    <div id="note-checkboxes">
+                    </div>
+                    <p id="accord-label">Sélectionnez les notes pour trouver l'accord :</p>
+                    <button id="find-chord-button">Trouver l'accord</button>
+                    <button id="clear-checkboxes-button">Décocher les checkbox</button>
+                    <div class="ns-automatic-update-container">
+                        <label>
+                            <input type="checkbox" id="ns-auto-update-checkbox"> Actualisation automatique
+                        </label>
+                    </div>
+                </div>
+                <div class="chords-details">
+                    <h2>Détails de l'accord</h2>
+                    <p><strong>Notes :</strong> <span id="ns-chord-notes"></span></p>
+                    <p><strong>Description :</strong> <span id="ns-chord-description"></span></p>
+                </div>
+                <div class="ns-chords-controls">
+                    <div class="ns-flex">
+                        <button id="ns-play-chord-button">Jouer l'accord</button>
+                        <label class="play-time-duration-label">Durée de jeu en secondes
+                            <div class="play-time-duration">
+                                <input type="text" id="ns-play-duration">
+                            </div>
+                        </label>
+                        <button id="ns-play-stop">Arrêter l'accord</button>
+                    </div>
+                    <div class="volume-slider">
+                        <input type="range" id="ns-volume-slider" min="0" max="1" step="0.01" value="0.7">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Barre de Navigation du bas-->
+    <div id="footer"></div>
+
+    <!--Les scripts communs -->
+    <script src="/js/scripts_communs.js"></script>
+
+    <script src="/js/script-findmychord.js"></script>
+
+
+</body>
+
+</html>

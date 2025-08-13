@@ -1,0 +1,287 @@
+/* Styles généraux */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Adaptabilité pour les petits écrans */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+}
+
+/* Styles pour les sections */
+.title {
+    border: var(--border-color), 2px solid;
+}
+
+h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* Styles des "cartes" */
+.search-area,
+.chord-list,
+.list-chord-details,
+.list-chords-details-container,
+.note-selector,
+.chords-details,
+.title,
+.play-time-duration-label {
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-area,
+.chord-list,
+.list-chord-details,
+.list-chords-details-container,
+.note-selector,
+.chords-details {
+    padding: 20px;
+}
+
+.ns-automatic-update-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.lcd-flex,
+.ns-flex {
+    width: 100%;
+    display: flex;
+    padding: 1vw 1vw 1vw 1vw;
+    justify-content: space-between ;
+    align-items: center;
+    /* background-color: red; */
+
+}
+
+.play-time-duration-label {
+    display: flex-inline;
+    vertical-align: text-bottom;
+    justify-items: center;
+    margin: 30px 0vw 30px 0vw;
+    font-weight: bold;
+    border: 1px solid var(--border-color);
+    padding: 1vw;
+    border-radius: 0.25vw;
+}
+
+/*Input durée*/
+.play-time-duration {
+    width: 5vw;
+    margin-top: 10px;
+}
+
+
+.volume-slider {
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+/* Styles des formulaires et contrôles */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Styles pour les listes d'accords */
+.collapsible-list {
+    max-height: 25vh;
+    overflow: auto;
+    transition: max-height 1.75s ease-in-out;
+}
+
+.collapsible-list.expanded {
+    max-height: 300vh;
+}
+
+/* Style de base pour la liste */
+#chord-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 5px;
+    /* Affichage par défaut sur les grands écrans */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+#chord-list li {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    background-color: #f9f9f9;
+}
+
+#chord-list li:hover {
+    background-color: #e9ecef;
+}
+
+/* Styles pour les contrôles audio et les détails d'accords */
+.lcd-controls,
+.ns-chords-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+input[type="range"] {
+    flex-grow: 1;
+}
+
+/* Styles pour la sélection de notes générée par JS */
+#note-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#note-checkboxes label {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    height: 3vh;
+    width: 3vw;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+#note-checkboxes label.active {
+    background-color: var(--secondary-color) !important;
+    color: rgb(0, 0, 0);
+    /* ou white, selon la couleur de votre secondary-color */
+    font-weight: bold;
+}
+
+
+#note-checkboxes input[type="checkbox"] {
+    display: true;
+}
+
+
+#note-checkboxes input[type="checkbox"]:checked+span {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    /* background-color: var(--secondary-color) !important; */
+}
+
+/* Nouveau style pour les labels avec la classe .active */
+
+
+#note-checkboxes label:hover {
+    background-color: #e9ecef;
+}
+
+/* Surcharge des styles pour les boutons et contrôles du sélecteur de notes */
+.note-selector .chords-details {
+    margin-top: 20px;
+}
+
+.note-selector p {
+    margin-top: 0;
+}
+
+.note-selector button {
+    margin-right: 10px;
+}
+
+/* Styles pour les détails d'accord */
+.chords-details p {
+    margin: 5px 0;
+}
+
+
+
+
+.card {
+    position: relative;
+    /* Indispensable pour positionner les poignées */
+    border: 1px solid hsla(0, 0%, 100%, 0);
+
+}
+
+.resizer {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+    /* Curseur de redimensionnement Est-Ouest */
+    z-index: 10;
+}
+
+#right-resizer {
+    right: 0;
+    top: 0;
+}
+
+
