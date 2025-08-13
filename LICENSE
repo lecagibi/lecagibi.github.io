@@ -1,3 +1,19 @@
+// License File
+
+Hello, you will find a recap of the licence and the full version just above, good reads.
+
+This software is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+
+You are free to use, modify, and distribute this software, provided that:
+- Any modifications you make are also licensed under AGPL-3.0.
+- If you deploy this software as a web application, you must make your modified source code available to users.
+- Commercial use is allowed, provided the conditions of AGPL-3.0 are met.
+
+See the full license text in: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+
+
+
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
 
@@ -659,3 +675,7 @@ specific requirements.
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 <https://www.gnu.org/licenses/>.
+
+
+
+
