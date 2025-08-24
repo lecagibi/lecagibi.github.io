@@ -1,4 +1,113 @@
 /* Styles généraux */
+
+/* Adaptabilité pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    #note-checkboxes label {
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+
+        .key {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #999;
+            border-radius: 50%;
+            /* Touches rondes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            background: white;
+            margin: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Style pour la touche principale du layout C */
+        .layout-c .key[data-note="C"]::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #999 1px, transparent 1px) 0 0 / 8px 8px;
+            opacity: 0.2;
+        }
+
+        /* Style pour la touche principale du layout B */
+        .layout-b .key[data-note="B"]::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #999 1px, transparent 1px) 0 0 / 8px 8px;
+            opacity: 0.2;
+        }
+
+        /* Style pour la touche principale du layout G-Griff */
+        .layout-g-griff .key[data-note="G"]::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #999 1px, transparent 1px) 0 0 / 8px 8px;
+            opacity: 0.2;
+        }
+
+        /* Style pour la touche principale du layout Janko */
+        .layout-janko .key[data-note="C"]::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #999 1px, transparent 1px) 0 0 / 8px 8px;
+            opacity: 0.8;
+            width: 3vw;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Centrer le contenu */
+            position: relative;
+            /* Pour le positionnement absolu de la checkbox */
+        }
+    }
+
+    /* Style pour le texte */
+    #note-checkboxes label span {
+        z-index: 1;
+        /* Permet de cliquer à travers */
+        pointer-events: none;
+    }
+
+
+    #note-checkboxes {
+        /* Réduit l'espace entre les checkboxes sur mobile */
+        gap: 5px;
+    }
+
+    #note-checkboxes input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        /* Cache visuellement la checkbox mais garde la fonctionnalité */
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        cursor: pointer;
+    }
+}
+
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
@@ -17,14 +126,7 @@ body {
     gap: 30px;
 }
 
-/* Adaptabilité pour les petits écrans */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 10px;
-    }
-}
+
 
 /* Styles pour les sections */
 .title {
@@ -53,7 +155,8 @@ h2 {
 .note-selector,
 .chords-details,
 .title,
-.play-time-duration-label {
+.play-time-duration-label,
+.music-score-container {
     background: var(--card-background);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -78,7 +181,7 @@ h2 {
     width: 100%;
     display: flex;
     padding: 1vw 1vw 1vw 1vw;
-    justify-content: space-between ;
+    justify-content: space-between;
     align-items: center;
     /* background-color: red; */
 
@@ -242,6 +345,176 @@ input[type="range"] {
     background-color: #e9ecef;
 }
 
+/* Styles pour le clavier d'accordéon */
+.accordion-keyboard {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-container {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+
+/* Styles de base pour tous les layouts */
+.layout-c,
+.layout-b,
+.layout-g-griff,
+.layout-janko {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: fit-content;
+    min-width: 100%;
+    position: relative;
+    justify-content: center;
+}
+
+/* Ajustements spécifiques pour chaque layout */
+.layout-c .key-row:nth-child(1),
+.layout-b .key-row:nth-child(1),
+.layout-g-griff .key-row:nth-child(1),
+.layout-janko .key-row:nth-child(1) {
+    transform: translateX(-57px);
+}
+
+.layout-c .key-row:nth-child(2),
+.layout-b .key-row:nth-child(2),
+.layout-g-griff .key-row:nth-child(2),
+.layout-janko .key-row:nth-child(2) {
+    transform: translateX(-28.5px);
+}
+
+/* Ajustement spécifique pour le layout Janko */
+.layout-janko {
+    margin-top: 20px; /* Ajoute de l'espace en haut pour éviter la coupure */
+    margin-bottom: 20px; /* Ajoute de l'espace en bas */
+    padding-top: 10px; /* Espace interne supplémentaire */
+    min-height: 170px; /* Hauteur minimale pour s'assurer que tout est visible */
+}
+
+
+.key-row {
+    display: flex;
+    gap: 4px;
+    position: relative;
+}
+
+/* Décalage des rangées */
+.key-row:nth-child(1) {
+    transform: translateX(-57px)
+        /* La moitié de la largeur d'une touche (45/1.5) + 1px pour le gap */
+}
+
+.key-row:nth-child(2) {
+    transform: translateX(-28.5px);
+    /* Un quart de la largeur d'une touche (45/2.5x) + 0.5px pour le gap */
+}
+
+.key {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    /* Touches rondes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    background: white;
+    margin: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.key.black {
+    background: var(--accordion-altered-key-color);
+    color: white;
+    border-color: color-mix(in srgb, var(--accordion-altered-key-color) 80%, white);
+}
+
+/* Styles pour le clavier principal (milieu) */
+/* Styles pour le clavier principal (milieu) - Notes principales */
+.keyboard-container:nth-child(2) .key.in-chord.main-note-in-chord:not(.black) {
+    background: var(--accordion-key-main-color-in-chord);
+    color: black;
+    border-color: color-mix(in srgb, var(--accordion-key-main-color-in-chord) 80%, black);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.keyboard-container:nth-child(2) .key.black.in-chord.main-note-in-chord {
+    background: var(--accordion-altered-key-main-color-in-chord);
+    color: white;
+    border-color: color-mix(in srgb, var(--accordion-altered-key-main-color-in-chord) 80%, white);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Styles pour le clavier principal (milieu) - Notes adjacentes */
+.keyboard-container:nth-child(2) .key.in-chord:not(.main-note-in-chord):not(.black) {
+    background: var(--accordion-key-color-in-chord);
+    color: black;
+    border-color: color-mix(in srgb, var(--accordion-key-color-in-chord) 80%, black);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.keyboard-container:nth-child(2) .key.black.in-chord:not(.main-note-in-chord) {
+    background: var(--accordion-altered-key-color-in-chord);
+    color: white;
+    border-color: color-mix(in srgb, var(--accordion-altered-key-color-in-chord) 80%, white);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Styles pour les claviers adjacents */
+.keyboard-container:not(:nth-child(2)) .key.in-chord:not(.black) {
+    background: var(--accordion-key-color-in-chord);
+    color: black;
+    border-color: color-mix(in srgb, var(--accordion-key-color-in-chord) 80%, black);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.keyboard-container:not(:nth-child(2)) .key.black.in-chord {
+    background: var(--accordion-altered-key-color-in-chord);
+    color: white;
+    border-color: color-mix(in srgb, var(--accordion-altered-key-color-in-chord) 80%, white);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.keyboard-controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.keyboard-controls select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: white;
+    cursor: pointer;
+}
+
 /* Surcharge des styles pour les boutons et contrôles du sélecteur de notes */
 .note-selector .chords-details {
     margin-top: 20px;
@@ -284,4 +557,38 @@ input[type="range"] {
     top: 0;
 }
 
+/* Style pour les touches principales avec motif de points */
+.key.main-key::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at center, #999 1.5px, transparent 1.5px),
+        radial-gradient(circle at center, #999 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+    opacity: 0.5;
+    pointer-events: none;
+}
 
+.key.main-key.black::before {
+    background-image:
+        radial-gradient(circle at center, #fff 1.5px, transparent 1.5px),
+        radial-gradient(circle at center, #fff 1.5px, transparent 1.5px);
+}
+
+/* Style pour les touches principales dans un accord */
+.key.in-chord.main-note-in-chord:not(.black) {
+    background: var(--accordion-key-main-color-in-chord) !important;
+    color: black !important;
+    border-color: color-mix(in srgb, var(--accordion-key-main-color-in-chord) 80%, black) !important;
+}
+
+.key.in-chord.main-note-in-chord.black {
+    background: var(--accordion-altered-key-main-color-in-chord) !important;
+    color: white !important;
+    border-color: color-mix(in srgb, var(--accordion-altered-key-main-color-in-chord) 80%, white) !important;
+}

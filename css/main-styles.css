@@ -6,22 +6,36 @@
 
 /* Variables pour une gestion facile des couleurs */
 :root {
-  --primary-color: #4a90e2;
   /* Bleu vif */
-  --menu-color: #4F4AE2;
+  --primary-color: #4a90e2;
   /* couleur du menu  */
-  --secondary-color: #50e3c2;
+  --menu-color: #4F4AE2;
   /* Vert d'eau */
-  --background-color: #f4f7f9;
+  --secondary-color: #50e3c2;
+  /* Vert d'eau clair */
+  --secondary-color-light: rgb(80, 227, 194, .1);
   /* Gris clair */
-  --card-background: #ffffff;
+  --background-color: #f4f7f9;
   /* Blanc pour les cartes */
-  --border-color: #e0e6ed;
+  --card-background: #ffffff;
   /* Gris pour les bordures */
-  --text-color: #333333;
+  --border-color: #e0e6ed;
   /* Gris foncé pour le texte */
-  --hover-color: #3b7ad1;
+  --text-color: #333333;
   /* Bleu plus foncé au survol */
+  --hover-color: #3b7ad1;
+  /* Couleur touche de base */
+  --accordion-key-color: none;
+  /* Couleur touche de base altéré */
+  --accordion-altered-key-color: #2c3e50;
+  /* Couleur touche de base clavier principal en surbrillance */
+  --accordion-key-main-color-in-chord: var(--secondary-color);
+  /* Couleur touche de base clavier principal en surbrillance altéré */
+  --accordion-altered-key-main-color-in-chord: rgb(10, 96, 102);
+  /* Couleur touche de base claviers alentours en surbrillance */
+  --accordion-key-color-in-chord: var(--secondary-color-light);
+  /* Couleur touche de base claviers alentours en surbrillance altéré */
+  --accordion-altered-key-color-in-chord: rgb(10, 96, 102, .1);
 }
 
 .logo,
@@ -240,6 +254,23 @@ nav {
   color: #8a7571;
 }
 
+.keyboard-accordion {
+  color: #495057 !important;
+  padding: 0px 15px 0px 5px;
+  margin-top: 5px;
+}
+
+.tania {
+  color: #da3b87 !important;
+}
+
+.vexflow {
+  font-family: 'Tangerine', 'OFL Sorts Mill Goudy TT', Arial, sans-serif !important;
+  font-size: 45px !important;
+  padding: 0px 15px 0px 5px;
+  color: #554 !important;
+  text-shadow: 4px 4px 4px #aaa !important;
+}
 
 
 
@@ -284,7 +315,7 @@ nav {
 .CGU-texte-important {
   color: orange;
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
 
 }
 
