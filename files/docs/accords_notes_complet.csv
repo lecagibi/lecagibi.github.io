@@ -29,6 +29,28 @@ Caug;C - E - G#;C augmente, est compose d'une tierce majeure et d'une quinte aug
 Caug7;C - E - G# - Bb;C augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 ;;
 ;;
+C#;"C# - F - G# ; C# - E# - G#";C# majeur, est compose d'une tierce majeure et d'une quinte juste
+C#m;C# - E - G#;C# mineur, est compose d'une tierce mineure et d'une quinte juste
+C#7;C# - F - G# - B;C# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+C#m7;C# - E - G# - B;C# mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+C#Maj7;"C# - F - G# - C ; C# - F - G# - B#";C# mineur, est compose d'une tierce mineure et d'une quinte juste
+C#mM7;"C# - E - G# - C ; C# - E - G# - B#";C# mineur, est compose d'une tierce mineure et d'une quinte juste
+C#6;C# - F - G# - A#;C# sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+C#m6;C# - E - G# - A#;C# mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+C#6/9;"C# - F - G# - A# - D# ; C# - E# - G# - A# - D#";C# sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+C#5;C# -  G#;C# quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+C#9;"C# - F - G# - B - D# ; C# - E# - G# - B - D#";C# majeur, est compose d'une tierce majeure et d'une quinte juste
+C#m9;C# - E - G# - B - D#;C# mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+C#Maj9;C# - F - G# - C - D#;C# mineur, est compose d'une tierce mineure et d'une quinte juste
+C#11;"C# - F - G# - B - D# - F# ; C# - E# - G# - B - D# - F#";C# majeur, est compose d'une tierce majeure et d'une quinte juste
+C#m11;C# - E - G# - B - D# - F#;C# mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+C#Maj11;"C# - F - G# - C - D# -  A# ; C# - E# - G# - B# - D# - A#";C# mineur, est compose d'une tierce mineure et d'une quinte juste
+C#13;"C# - F - G# - B - D# - F# - A# ; C# - E# - G# - B - D# - F# - A#";C# majeur, est compose d'une tierce majeure et d'une quinte juste
+C#m13;C# - E - G# - B - D# - F# - A#;C# mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
+C#Maj11;"C# - F - G# - C - D# -  A# ; C# - E# - G# - B# - D# - A#";C# mineur, est compose d'une tierce mineure et d'une quinte juste
+C#add;"C# - F - G# - D# ; C# - E# - G# - D#";C# add, est compose d'une tierce majeure, d'une quinte juste et d'une note ajoutee (ex. 2, 4 ou 6)
+C#7-5;"C# - F - G - B ; C# - E# - G - B";C# septieme quinte diminuee, est compose d'une tierce majeure, d'une quinte diminuee et d'une septieme mineure
+C#7+5;"C# - F - A - B ; C# - E# - A - B";C# septieme quinte augmentee, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 C#;C# - F - G# / C# - E# - G#;C# majeur, est compose d'une tierce majeure et d'une quinte juste
 C#m;C# - E - G#;C# mineur, est compose d'une tierce mineure et d'une quinte juste
 C#7;C# - F - G# - B;C# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
@@ -55,6 +77,29 @@ C#sus;C# - F# - G#;C# suspendu, est compose de la fondamentale, de la quarte jus
 C#dim;C# - E - G;C# diminue, est compose d'une tierce mineure et d'une quinte diminuee
 C#dim7;C# - E - G - A#;C# diminue septieme, est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme diminuee
 C#m7b5;C# - E - G - B;C# mineur septieme quinte diminuee (semi-diminue), est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme mineure
+C#aug;"C# - F - A ; C# - E# - A";C# augmente, est compose d'une tierce majeure et d'une quinte augmentee
+C#aug7;"C# - F - A - B ; C# - E# - A - B";C# augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
+;;
+;;
+Db;Db - F - Ab;Db majeur, est compose d'une tierce majeure et d'une quinte juste
+Dbm;"Db - E - Ab ; Db - Fb - Ab";Db mineur, est compose d'une tierce mineure et d'une quinte juste
+Db7;Db - F - Ab - B;Db 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+Dbm7;"Db - E - Ab - B ; Db - Fb - Ab - Cb";Db mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+DbMaj7;Db - F - Ab - C;Db mineur, est compose d'une tierce mineure et d'une quinte juste
+DbmM7;"Db - E - Ab - C ; Db - Fb - Ab - C";Db mineur, est compose d'une tierce mineure et d'une quinte juste
+Db6;Db - F - Ab - Bb;Db sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+Dbm6;"Db - E - Ab - Bb ; Db - Fb - Ab - Bb";Db mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+Db6/9;Db - F - Ab - Bb - Eb;Db sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+Db5;Db -  Ab;Db quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+Db9;Db - F - Ab - B - Eb;Db majeur, est compose d'une tierce majeure et d'une quinte juste
+Dbm9;"Db - E - Ab - B - Eb ; Db - Fb - Ab - Cb - Eb";Db mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+DbMaj9;Db - F - Ab - C - Eb;Db mineur, est compose d'une tierce mineure et d'une quinte juste
+Db11;Db - F - Ab - B - Eb - Gb;Db majeur, est compose d'une tierce majeure et d'une quinte juste
+Dbm11;"Db - E - Ab - B - Eb - Gb ; Db - Fb - Ab - Cb - Eb - Gb";Db mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+DbMaj11;Db - F - Ab - C - Eb -  Gb;Db mineur, est compose d'une tierce mineure et d'une quinte juste
+Db13;"Db - F - Ab - B - Eb - Gb - Bb ; Db - F - Ab - B - Eb - Gb - Cbb";Db majeur, est compose d'une tierce majeure et d'une quinte juste
+Dbm13;"Db - E - Ab - B - Eb - Gb - Bb ; Db - Fb - Ab - Cb - Eb - Gb - Bb";Db mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
+
 C#aug;C# - F - A / C# - E# - A;C# augmente, est compose d'une tierce majeure et d'une quinte augmentee
 C#aug7;C# - F - A - B / C# - E# - A - B;C# augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 ;;
@@ -119,6 +164,34 @@ Daug;D - F# - A#;D augmente, est compose d'une tierce majeure et d'une quinte au
 Daug7;D - F# - A# - C;D augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 ;;
 ;;
+D#;"D# - G - A# ; D# - F## - A#";D# majeur, est compose d'une tierce majeure et d'une quinte juste
+D#m;D# - F# - A#;D# mineur, est compose d'une tierce mineure et d'une quinte juste
+D#7;D# - G - A# - C#;D# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+D#m7;D# - F# - A# - C#;D# mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+D#Maj7;"D# - G - A# - D ; D# - G - A# - C##";D# mineur, est compose d'une tierce mineure et d'une quinte juste
+D#mM7;D# - F# - A# - D;D# mineur, est compose d'une tierce mineure et d'une quinte juste
+D#6;D# - G - A# - C;D# sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+D#m6;D# - F# - A# - C;D# mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+D#6/9;"D# - G - A# - C - F ; D# - F## - A# - B# - E#";D# sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+D#5;D# -  A#;D# quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+D#9;"D# - G - A# - C# - F ; D# - F## - A# - C# - E#";D# majeur, est compose d'une tierce majeure et d'une quinte juste
+D#m9;"D# - F# - A# - C# - F ; D# - F# - A# - C# - E#";D# mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+D#Maj9;"D# - G - A# - D - F ; D# - G - A# - D - E#";D# mineur, est compose d'une tierce mineure et d'une quinte juste
+D#11;"D# - G - A# - C# - F - G# ; D# - F## - A# - C# - E# - G#";D# majeur, est compose d'une tierce majeure et d'une quinte juste
+D#m11;"D# - F# - A# - C# - F - G# ; D# - F# - A# - C# - E# - G#";D# mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+D#Maj11;"D# - G - A# - D - F -  G# ; D# - F## - A# - C## - E# - G#";D# mineur, est compose d'une tierce mineure et d'une quinte juste
+D#13;"D# - G - A# - C# - F - G# - C ; D# - F## - A# - C# - E# - G# - B#";D# majeur, est compose d'une tierce majeure et d'une quinte juste
+D#m13;"D# - F# - A# - C# - F - G# - C ; D# - F# - A# - C# - E# - G# - B#";D# mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
+D#Maj13;"D# - G - A# - D - F -  C ; D# - G - A# - C## - F - B#";D# mineur, est compose d'une tierce mineure et d'une quinte juste
+D#add;"D# - G - A# - F ; D# - F## - A# - E#";D# add, est compose d'une tierce majeure, d'une quinte juste et d'une note ajoutee (ex. 2, 4 ou 6)
+D#7-5;"D# - G - A - C# ; D# - F## - A - C#";D# septieme quinte diminuee, est compose d'une tierce majeure, d'une quinte diminuee et d'une septieme mineure
+D#7+5;"D# - G - B - C# ; D# - F## - B - C#";D# septieme quinte augmentee, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
+D#sus;D# - G# - A#;D# suspendu, est compose de la fondamentale, de la quarte juste et de la quinte juste
+D#dim;D# - F# - A;D# diminue, est compose d'une tierce mineure et d'une quinte diminuee
+D#dim7;"D# - F# - A - C ; D# - F# - A - B#";D# diminue septieme, est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme diminuee
+D#m7b5;D# - F# - A - C#;D# mineur septieme quinte diminuee (semi-diminue), est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme mineure
+D#aug;"D# - G - B ; D# - F## - B";D# augmente, est compose d'une tierce majeure et d'une quinte augmentee
+D#aug7;"D# - G - B - C# ; D# - F## - B - C#";D# augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 D#;D# - G - A# / D# - F## - A#;D# majeur, est compose d'une tierce majeure et d'une quinte juste
 D#m;D# - F# - A#;D# mineur, est compose d'une tierce mineure et d'une quinte juste
 D#7;D# - G - A# - C#;D# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
@@ -243,6 +316,9 @@ F#;F# - A# - C#;F# majeur, est compose d'une tierce majeure et d'une quinte just
 F#m;F# - A - C#;F# mineur, est compose d'une tierce mineure et d'une quinte juste
 F#7;F# - A# - C# - E;F# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
 F#m7;F# - A - C# - E;F# mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+F#Maj7;"F# - A# - C# - F ; F# - A# - C# - E#";F# mineur, est compose d'une tierce mineure et d'une quinte juste
+F#mM7;"F# - A - C# - F ; F# - A - C# - E#";F# mineur, est compose d'une tierce mineure et d'une quinte juste
+
 F#Maj7;F# - A# - C# - F / F# - A# - C# - E#;F# mineur, est compose d'une tierce mineure et d'une quinte juste
 F#mM7;F# - A - C# - F / F# - A - C# - E#;F# mineur, est compose d'une tierce mineure et d'une quinte juste
 F#6;F# - A# - C# - D#;F# sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
@@ -254,6 +330,10 @@ F#m9;F# - A - C# - E - G#;F# mineur neuvieme, est compose d'une tierce mineure, 
 F#Maj9;F# - A# - C# - F - G#;F# mineur, est compose d'une tierce mineure et d'une quinte juste
 F#11;F# - A# - C# - E - G# - B;F# majeur, est compose d'une tierce majeure et d'une quinte juste
 F#m11;F# - A - C# - E - G# - B;F# mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+F#Maj11;"F# - A# - C# - F - G# - B ; F# - A# - C# - E# - G# - B";F# mineur, est compose d'une tierce mineure et d'une quinte juste
+F#13;F# - A# - C# - E - G# - B - D#;F# majeur, est compose d'une tierce majeure et d'une quinte juste
+F#m13;F# - A - C# - E - G# - B - D#;F# mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
+F#Maj13;"F# - A# - C# - F - G# - D# ; F# - A# - C# - E# - G# - D#";F# mineur, est compose d'une tierce mineure et d'une quinte juste
 F#Maj11;F# - A# - C# - F - G# - B / F# - A# - C# - E# - G# - B;F# mineur, est compose d'une tierce mineure et d'une quinte juste
 F#13;F# - A# - C# - E - G# - B - D#;F# majeur, est compose d'une tierce majeure et d'une quinte juste
 F#m13;F# - A - C# - E - G# - B - D#;F# mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
@@ -270,6 +350,23 @@ F#aug7;F# - A# - D - E;F# augmente septieme, est compose d'une tierce majeure, d
 ;;
 ;;
 Gb;Gb - Bb - Db;Gb majeur, est compose d'une tierce majeure et d'une quinte juste
+Gbm;"Gb - A - Db ; Gb - Bbb - Db";Gb mineur, est compose d'une tierce mineure et d'une quinte juste
+Gb7;Gb - Bb - Db - E;Gb 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+Gbm7;"Gb - A - Db - E ; Gb - Bbb - Db - Fb";Gb mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+GbMaj7;"Gb - Bb - Db - F ; Gb - Bb - Db - F";Gb mineur, est compose d'une tierce mineure et d'une quinte juste
+GbmM7;"Gb - A - Db - F ; Gb - Bbb - Db - F";Gb mineur, est compose d'une tierce mineure et d'une quinte juste
+Gb6;Gb - Bb - Db - Eb;Gb sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+Gbm6;"Gb - A - Db - Eb ; Gb - Bbb - Db - Eb";Gb mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+Gb6/9;Gb - Bb - Db - Eb - Ab;Gb sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+Gb5;Gb -  Db;Gb quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+Gb9;Gb - Bb - Db - E - Ab;Gb majeur, est compose d'une tierce majeure et d'une quinte juste
+Gbm9;"Gb - A - Db - E - Ab ; Gb - Bbb - Db - Fb - Ab";Gb mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+GbMaj9;"Gb - Bb - Db - F - Ab ; Gb - Bb - Db - F - Ab";Gb mineur, est compose d'une tierce mineure et d'une quinte juste
+Gb11;"Gb - Bb - Db - E - Ab - B ; Gb - Bb - Db - E - Ab - Cb";Gb majeur, est compose d'une tierce majeure et d'une quinte juste
+Gbm11;"Gb - A - Db - E - Ab - B ; Gb - Bbb - Db - Fb - Ab - Cb";Gb mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+GbMaj11;Gb - Bb - Db - F - Ab -  B;Gb mineur, est compose d'une tierce mineure et d'une quinte juste
+Gb13;"Gb - Bb - Db - E - Ab - B - Eb ; Gb - Bb - Db - E - Ab - Cb - Fbb";Gb majeur, est compose d'une tierce majeure et d'une quinte juste
+Gbm13;"Gb - A - Db - E - Ab - B - Eb ; Gb - Bbb - Db - Fb - Ab - Cb - Eb";Gb mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
 Gbm;Gb - A - Db / Gb - Bbb - Db;Gb mineur, est compose d'une tierce mineure et d'une quinte juste
 Gb7;Gb - Bb - Db - E;Gb 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
 Gbm7;Gb - A - Db - E / Gb - Bbb - Db - Fb;Gb mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
@@ -291,6 +388,7 @@ GbMaj13;Gb - Bb - Db - F - Ab -  Eb;Gb mineur, est compose d'une tierce mineure 
 Gbadd;Gb - Bb - Db - Ab;Gb add, est compose d'une tierce majeure, d'une quinte juste et d'une note ajoutee (ex. 2, 4 ou 6)
 Gb7-5;Gb - Bb - C - E;Gb septieme quinte diminuee, est compose d'une tierce majeure, d'une quinte diminuee et d'une septieme mineure
 Gb7+5;Gb - Ab - D - E;Gb septieme quinte augmentee, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
+Gbsus;"Gb - B - Db ; Gb - Cb - Db";Gb suspendu, est compose de la fondamentale, de la quarte juste et de la quinte juste
 Gbsus;Gb - B - Db / Gb - Cb - Db;Gb suspendu, est compose de la fondamentale, de la quarte juste et de la quinte juste
 Gbdim;Gb - A - C;Gb diminue, est compose d'une tierce mineure et d'une quinte diminuee
 Gbdim7;Gb -  A - C -  Eb;Gb diminue septieme, est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme diminuee
@@ -329,6 +427,34 @@ Gaug;G - B - D#;G augmente, est compose d'une tierce majeure et d'une quinte aug
 Gaug7;G - B - D# - F;G augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 ;;
 ;;
+G#;"G# - C - D# ; G# - B# - D#";G# majeur, est compose d'une tierce majeure et d'une quinte juste
+G#m;G# - B - D#;G# mineur, est compose d'une tierce mineure et d'une quinte juste
+G#7;G# - C - D# - F#;G# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+G#m7;G# - B - D# - F#;G# mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+G#Maj7;"G# - C - D# - G ; G# - C - D# - F##";G# mineur, est compose d'une tierce mineure et d'une quinte juste
+G#mM7;"G# - B - D# - G ; G# - B - D# - F##";G# mineur, est compose d'une tierce mineure et d'une quinte juste
+G#6;G# - C - D# - F;G# sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+G#m6;G# - B - D# - F;G# mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+G#6/9;"G# - C - D# - F - A# ; G# - B# - D# - E# - A#";G# sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+G#5;G# - D#;G# quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+G#9;"G# - C - D# - F# - A# ; G# - B# - D# - F# - A#";G# majeur, est compose d'une tierce majeure et d'une quinte juste
+G#m9;G# - B - D# - F# - A#;G# mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+G#Maj9;G# - C - D# - G - A#;G# mineur, est compose d'une tierce mineure et d'une quinte juste
+G#11;"G# - C - D# - F# - A# - C# ; G# - B# - D# - F# - A# - C#";G# majeur, est compose d'une tierce majeure et d'une quinte juste
+G#m11;G# - B - D# - F# - A# - C#;G# mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+G#Maj11;"G# - C - D# - G - A# - C# ; G# - C - D# - F## - A# - B##";G# mineur, est compose d'une tierce mineure et d'une quinte juste
+G#13;"G# - C - D# - F# - A# - C# - F ; G# - B# - D# - F# - A# - C# - E#";G# majeur, est compose d'une tierce majeure et d'une quinte juste
+G#m13;"G# - B - D# - F# - A# - C# - F ; G# - B - D# - F# - A# - C# - E#";G# mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
+G#Maj13;"G# - C - D# - G - A# - F ; G# - C - D# - F## - A# - F";G# mineur, est compose d'une tierce mineure et d'une quinte juste
+G#add;"G# - C - D# - A# ; G# - B# - D# - A#";G# add, est compose d'une tierce majeure, d'une quinte juste et d'une note ajoutee (ex. 2, 4 ou 6)
+G#7-5;"G# - C - D - F# ; G# - B# - D - F#";G# septieme quinte diminuee, est compose d'une tierce majeure, d'une quinte diminuee et d'une septieme mineure
+G#7+5;"G# - C - E - F# ; G# - B# - E - F#";G# septieme quinte augmentee, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
+G#sus;G# - C# - D#;G# suspendu, est compose de la fondamentale, de la quarte juste et de la quinte juste
+G#dim;G# - B - D;G# diminue, est compose d'une tierce mineure et d'une quinte diminuee
+G#dim7;"G# -  B - D -  F ; G# -  B - D -  E#";G# diminue septieme, est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme diminuee
+G#m7b5;G# - B - D - F#;G# mineur septieme quinte diminuee (semi-diminue), est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme mineure
+G#aug;"G# - C - E ; G# - B# - E";G# augmente, est compose d'une tierce majeure et d'une quinte augmentee
+G#aug7;"G# - C - E - F# ; G# - B# - E - F#";G# augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 G#;G# - C - D# / G# - B# - D#;G# majeur, est compose d'une tierce majeure et d'une quinte juste
 G#m;G# - B - D#;G# mineur, est compose d'une tierce mineure et d'une quinte juste
 G#7;G# - C - D# - F#;G# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
@@ -362,6 +488,21 @@ G#aug7;G# - C - E - F# / G# - B# - E - F#;G# augmente septieme, est compose d'un
 Ab;Ab - C - Eb;Ab majeur, est compose d'une tierce majeure et d'une quinte juste
 Abm;Ab - B - Eb;Ab mineur, est compose d'une tierce mineure et d'une quinte juste
 Ab7;Ab - C - Eb - Gb;Ab 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+Abm7;"Ab - B - Eb - Gb ; Ab - Cb - Eb - Gb";Ab mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+AbMaj7;Ab - C - Eb - G;Ab mineur, est compose d'une tierce mineure et d'une quinte juste
+AbmM7;"Ab - B - Eb - G ; Ab - Cb - Eb - G";Ab mineur, est compose d'une tierce mineure et d'une quinte juste
+Ab6;Ab - C - Eb - F;Ab sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+Abm6;"Ab - B - Eb - F ; Ab - Cb - Eb - F";Ab mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+Ab6/9;Ab - C - Eb - F - Bb;Ab sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+Ab5;Ab -  Eb;Ab quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+Ab9;Ab - C - Eb - Gb - Bb;Ab majeur, est compose d'une tierce majeure et d'une quinte juste
+Abm9;"Ab - B - Eb - Gb - Bb ; Ab - Cb - Eb - Gb - Bb";Ab mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+AbMaj9;Ab - C - Eb - G - Bb;Ab mineur, est compose d'une tierce mineure et d'une quinte juste
+Ab11;Ab - C - Eb - Gb - Bb - Db;Ab majeur, est compose d'une tierce majeure et d'une quinte juste
+Abm11;"Ab - B - Eb - Gb - Bb - Db ; Ab - Cb - Eb - Gb - Bb - Db";Ab mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+AbMaj11;Ab - C - Eb - G - Bb - Db;Ab mineur, est compose d'une tierce mineure et d'une quinte juste
+Ab13;Ab - C - Eb - Gb - Bb - Db - F;Ab majeur, est compose d'une tierce majeure et d'une quinte juste
+Abm13;"Ab - B - Eb - Gb - Bb - Db - F ; Ab - Cb - Eb - Gb - Bb - Db - F";Ab mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
 Abm7;Ab - B - Eb - Gb / Ab - Cb - Eb - Gb;Ab mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
 AbMaj7;Ab - C - Eb - G;Ab mineur, est compose d'une tierce mineure et d'une quinte juste
 AbmM7;Ab - B - Eb - G / Ab - Cb - Eb - G;Ab mineur, est compose d'une tierce mineure et d'une quinte juste
@@ -419,6 +560,34 @@ Aaug;A - C# - F;A augmente, est compose d'une tierce majeure et d'une quinte aug
 Aaug7;A - C# - F - G;A augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 ;;
 ;;
+A#;"A# - D - F ; A# - C## - E#";A# majeur, est compose d'une tierce majeure et d'une quinte juste
+A#m;"A# - C# - F ; A# - C# - E#";A# mineur, est compose d'une tierce mineure et d'une quinte juste
+A#7;A# - D - F - G#;A# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
+A#m7;"A# - C# - F - G# ; A# - C# - E# - G#";A# mineur 7eme, est compose d'une tierce mineure, d'une quinte juste et d'une septieme mineure
+A#Maj7;"A# - D - F - A ; A# - D - E# - G##";A# mineur, est compose d'une tierce mineure et d'une quinte juste
+A#mM7;"A# - C# - F - A ; A# - C# - E# - A";A# mineur, est compose d'une tierce mineure et d'une quinte juste
+A#6;A# - D - F - G;A# sixte, est compose d'une tierce majeure, d'une quinte juste et d'une sixte majeure
+A#m6;"A# - C# - F - G ; A# - C# - E# - G";A# mineur sixte, est compose d'une tierce mineure, d'une quinte juste et d'une sixte majeure
+A#6/9;"A# - D - F - G - C ; A# - C## - E# - F## - B#";A# sixte et neuvieme, est compose d'une tierce majeure, d'une quinte juste, d'une sixte majeure et d'une neuvieme majeure
+A#5;"A# -  F ; A# -  E#";A# quinte juste, est compose uniquement de la fondamentale et de la quinte juste
+A#9;"A# - D - F - G# - C ; A# - C## - E# - G# - B#";A# majeur, est compose d'une tierce majeure et d'une quinte juste
+A#m9;"A# - C# - F - G# - C ; A# - C# - E# - G# - B#";A# mineur neuvieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une neuvieme majeure
+A#Maj9;"A# - D - F - A - C ; A# - D - E# - G## - B#";A# mineur, est compose d'une tierce mineure et d'une quinte juste
+A#11;"A# - D - F - G# - C - D# ; A# - C## - E# - G# - B# - D#";A# majeur, est compose d'une tierce majeure et d'une quinte juste
+A#m11;"A# - C# - F - G# - C - D# ; A# - C# - E# - G# - B# - D#";A# mineur onzieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une onzieme juste
+A#Maj11;"A# - D - F - A - C -  D# ; A# - C## - E# - G## - B# - D#";A# mineur, est compose d'une tierce mineure et d'une quinte juste
+A#13;"A# - D - F - G# - C - D# - G ; A# - C## - E# - G# - B# - D# - F##";A# majeur, est compose d'une tierce majeure et d'une quinte juste
+A#m13;"A# - C# - F - G# - C - D# - G ; A# - C# - E# - G# - B# - D# - F##";A# mineur treizieme, est compose d'une tierce mineure, d'une quinte juste, d'une septieme mineure et d'une treizieme majeure
+A#Maj13;"A# - D - F - A - C -  G ; A# - D - E# - G## - C - F##";A# mineur, est compose d'une tierce mineure et d'une quinte juste
+A#add;"A# - D - F - C ; A# - C## - E# - B#";A# add, est compose d'une tierce majeure, d'une quinte juste et d'une note ajoutee (ex. 2, 4 ou 6)
+A#7-5;"A# - D - E - G# ; A# - C## - D# - G#";A# septieme quinte diminuee, est compose d'une tierce majeure, d'une quinte diminuee et d'une septieme mineure
+A#7+5;"A# - D - F# - G# ; A# - C## - F# - G#";A# septieme quinte augmentee, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
+A#sus;"A# - D# - F ; A# - D# - E#";A# suspendu, est compose de la fondamentale, de la quarte juste et de la quinte juste
+A#dim;A# - Db - E;A# diminue, est compose d'une tierce mineure et d'une quinte diminuee
+A#dim7;"A# - Db -  E - G ; A# - Db -  E - F##";A# diminue septieme, est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme diminuee
+A#m7b5;A# - C# - E - G#;A# mineur septieme quinte diminuee (semi-diminue), est compose d'une tierce mineure, d'une quinte diminuee et d'une septieme mineure
+A#aug;"A# - D - F# ; A# - C## - F#";A# augmente, est compose d'une tierce majeure et d'une quinte augmentee
+A#aug7;"A# - D - F# - G# ; A# - C## - F# - G#";A# augmente septieme, est compose d'une tierce majeure, d'une quinte augmentee et d'une septieme mineure
 A#;A# - D - F / A# - C## - E#;A# majeur, est compose d'une tierce majeure et d'une quinte juste
 A#m;A# - C# - F / A# - C# - E#;A# mineur, est compose d'une tierce mineure et d'une quinte juste
 A#7;A# - D - F - G#;A# 7eme, est compose d'une tierce majeure, d'une quinte juste et d'une septieme mineure
