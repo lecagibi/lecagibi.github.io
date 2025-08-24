@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <div id="heads"></div>
+
+    <title>Chord Tool</title>
+
+    <link rel="stylesheet" href="/css/chord-styles.css">
+    <link rel="stylesheet" href="/css/music-notation.css">
+    <link rel="stylesheet" href="/css/piano-styles.css">
+
+    <!-- VexFlow library -->
+    <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
+
+
+</head>
+
+<body>
+
+    <!--Barre de Navigation du haut-->
+    <div id="header"></div>
+
+    <div class="container">
+        <h1 class="title">Outil d'Accords</h1>
+
+        <div class="top-cards-container">
+            <div class="left-column-content">
+                <div class="search-area">
+                    <label for="search-input">Rechercher un accord :</label>
+                    <input type="text" id="search-input" placeholder="Entrez le nom de l'accord">
+                    <label>
+                        <input type="checkbox" id="exclude-sharps"> Exclure les dièses (#)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="exclude-flats"> Exclure les bémols (b)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="exclude-naturals"> Exclure les bécarres (♮)
+                    </label>
+                </div>
+
+                <div class="chord-list">
+                    <h2>Liste des accords</h2>
+                    <div class="collapsible-list" id="chord-list-container">
+                        <ul id="chord-list">
+                        </ul>
+                    </div>
+                    <button id="toggle-list-button">Afficher plus</button>
+                </div>
+            </div>
+
+            <div class="list-chord-details">
+                <div class="list-chords-details-container">
+                    <h2>Détails de l'accord de la liste</h2>
+                    <p><strong>Accord :</strong> <span id="lcd-chord-chord"></span></p>
+                    <p><strong>Notes :</strong> <span id="lcd-chord-notes"></span></p>
+                    <p><strong>Description :</strong> <span id="lcd-chord-description"></span></p>
+                    <div class="chord-display-control">
+                        <!-- <label for="chord-variant-slider">Afficher : </label> -->
+                        <select id="chord-variant-selector">
+                            <option value="all">Tous les accords</option>
+                        </select>
+                    </div>
+                    <div class="music-score-container">
+                        <canvas class="vf-canvas" id="lcd-vf-canvas"></canvas>
+                    </div>
+                    <!-- Clavier d'accordéon pour la première partie -->
+                </div>
+                <div class="lcd-controls">
+                    <div class="lcd-flex">
+                        <button id="lcd-play-button">Jouer l'accord</button>
+                        <label class="play-time-duration-label">Durée de jeu en secondes
+                            <div class="play-time-duration">
+                                <input type="text" id="lcd-play-duration">
+                            </div>
+                        </label>
+                        <button id="lcd-play-stop">Arrêter l'accord</button>
+                    </div>
+                    <div class="volume-slider">
+                        <input type="range" id="lcd-volume-slider" min="0" max="1" step="0.01" value="0.7">
+                    </div>
+                </div>
+                <div class="keyboard-selector">
+                    <h3>Sélection du clavier 1 et 2</h3>
+                    <select id="lcd-keyboard-type-1" class="keyboard-type-selector">
+                        <option value="none">Aucun</option>
+                        <option value="accordion" selected>Accordéon</option>
+                        <option value="piano">Piano</option>
+                    </select>
+                    <select id="lcd-keyboard-type-2" class="keyboard-type-selector">
+                        <option value="none" selected>Aucun</option>
+                        <option value="accordion">Accordéon</option>
+                        <option value="piano">Piano</option>
+                    </select>
+                </div>
+
+                <div class="keyboards-container">
+                    <!-- Conteneur pour le premier clavier -->
+                    <div id="lcd-keyboard-1-container">
+                        <div id="lcd-accordion-container-1" class="accordion-keyboard" style="display: none;">
+                            <h3>Visualisation sur clavier d'accordéon (1)</h3>
+                            <div class="keyboard-container">
+                                <div id="lcd-accordion-keyboard-1" class="layout">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                                <div class="keyboard-controls">
+                                    <select id="lcd-keyboard-layout-1" class="layout-selector">
+                                        <option value="c">C System</option>
+                                        <option value="b">B System</option>
+                                        <option value="g-griff">G-Griff System</option>
+                                        <option value="janko">Janko System</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="lcd-piano-container-1" class="piano-keyboard" style="display: none;">
+                            <h3>Visualisation sur piano (1)</h3>
+                            <div class="piano-container">
+                                <div id="lcd-piano-keyboard-1">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteneur pour le deuxième clavier -->
+                    <div id="lcd-keyboard-2-container">
+                        <div id="lcd-accordion-container-2" class="accordion-keyboard" style="display: none;">
+                            <h3>Visualisation sur clavier d'accordéon (2)</h3>
+                            <div class="keyboard-container">
+                                <div id="lcd-accordion-keyboard-2" class="layout">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                                <div class="keyboard-controls">
+                                    <select id="lcd-keyboard-layout-2" class="layout-selector">
+                                        <option value="c">C System</option>
+                                        <option value="b">B System</option>
+                                        <option value="g-griff">G-Griff System</option>
+                                        <option value="janko">Janko System</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="lcd-piano-container-2" class="piano-keyboard" style="display: none;">
+                            <h3>Visualisation sur piano (2)</h3>
+                            <div class="piano-container">
+                                <div id="lcd-piano-keyboard-2">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class=" card" id="my-card">
+            <div class="resizer" id="right-resizer"></div>
+            <div class="note-selector">
+
+                <div class="note-selector-content">
+                    <h2>Trouver un accord par notes</h2>
+                    <div id="note-checkboxes">
+                    </div>
+                    <p id="accord-label">Sélectionnez les notes pour trouver l'accord :</p>
+                    <button id="find-chord-button">Trouver l'accord</button>
+                    <button id="clear-checkboxes-button">Décocher les checkbox</button>
+                    <div class="ns-automatic-update-container">
+                        <label>
+                            <input type="checkbox" id="ns-auto-update-checkbox"> Actualisation automatique
+                        </label>
+                    </div>
+                </div>
+                <div class="chords-details">
+                    <h2>Détails de l'accord</h2>
+                    <p><strong>Notes :</strong> <span id="ns-chord-notes"></span></p>
+                    <p><strong>Description :</strong> <span id="ns-chord-description"></span></p>
+                    <div class="music-score-container">
+                        <canvas class="vf-canvas" id="ns-vf-canvas"></canvas>
+                    </div>
+
+
+                    <div class="ns-chords-controls">
+                        <div class="ns-flex">
+                            <button id="ns-play-chord-button">Jouer l'accord</button>
+                            <label class="play-time-duration-label">Durée de jeu en secondes
+                                <div class="play-time-duration">
+                                    <input type="text" id="ns-play-duration">
+                                </div>
+                            </label>
+                            <button id="ns-play-stop">Arrêter l'accord</button>
+                        </div>
+                        <div class="volume-slider">
+                            <input type="range" id="ns-volume-slider" min="0" max="1" step="0.01" value="0.7">
+                        </div>
+                    </div>
+                </div>
+                <!-- Clavier d'accordéon pour la seconde partie -->
+                <div class="keyboard-selector">
+                    <h3>Sélection du clavier 1 et 2</h3>
+                    <select id="ns-keyboard-type-1" class="keyboard-type-selector">
+                        <option value="none" selected>Aucun</option>
+                        <option value="accordion">Accordéon</option>
+                        <option value="piano">Piano</option>
+                    </select>
+                    <select id="ns-keyboard-type-2" class="keyboard-type-selector">
+                        <option value="none" selected>Aucun</option>
+                        <option value="accordion">Accordéon</option>
+                        <option value="piano">Piano</option>
+                    </select>
+                </div>
+
+                <div class="keyboards-container">
+                    <!-- Conteneur pour le premier clavier -->
+                    <div id="ns-keyboard-1-container">
+                        <div id="ns-accordion-container-1" class="accordion-keyboard" style="display: none;">
+                            <h3>Visualisation sur clavier d'accordéon (1)</h3>
+                            <div class="keyboard-container">
+                                <div id="ns-accordion-keyboard-1" class="layout">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                                <div class="keyboard-controls">
+                                    <select id="ns-keyboard-layout-1" class="layout-selector">
+                                        <option value="c">C System</option>
+                                        <option value="b">B System</option>
+                                        <option value="g-griff">G-Griff System</option>
+                                        <option value="janko">Janko System</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="ns-piano-container-1" class="piano-keyboard" style="display: none;">
+                            <h3>Visualisation sur piano (1)</h3>
+                            <div class="piano-container">
+                                <div id="ns-piano-keyboard-1">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteneur pour le deuxième clavier -->
+                    <div id="ns-keyboard-2-container">
+                        <div id="ns-accordion-container-2" class="accordion-keyboard" style="display: none;">
+                            <h3>Visualisation sur clavier d'accordéon (2)</h3>
+                            <div class="keyboard-container">
+                                <div id="ns-accordion-keyboard-2" class="layout">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                                <div class="keyboard-controls">
+                                    <select id="ns-keyboard-layout-2" class="layout-selector">
+                                        <option value="c">C System</option>
+                                        <option value="b">B System</option>
+                                        <option value="g-griff">G-Griff System</option>
+                                        <option value="janko">Janko System</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="ns-piano-container-2" class="piano-keyboard" style="display: none;">
+                            <h3>Visualisation sur piano (2)</h3>
+                            <div class="piano-container">
+                                <div id="ns-piano-keyboard-2">
+                                    <!-- Les touches seront générées par JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Barre de Navigation du bas-->
+    <div id="footer"></div>
+
+    <!--Les scripts communs -->
+    <script src="/js/scripts_communs.js"></script>
+    <script src="/js/script-findmychord.js"></script>
+    <script src="/js/music-notation.js"></script>
+    <script src="/js/piano-keyboard.js"></script>
+    <!-- Script d'initialisation déplacé dans piano-keyboard.js -->
+
+
+</body>
+
+</html>

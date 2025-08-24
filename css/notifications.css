@@ -1,0 +1,23 @@
+/*css/notification.js*/
+
+.copy-notif-click {
+    position: fixed; /* pour coller au curseur */
+    pointer-events: none; /* clics passent au travers */
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 9999;
+}
+
+.copy-notif {
+    display: inline-block;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    background-color: var(--card-background);
+    padding: 1vw;
+    border-radius: 5px;
+}
+
+.copy-notif-click.show {
+    opacity: 1;
+}
