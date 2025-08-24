@@ -14,6 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
 
 
+
 </head>
 
 <body>
@@ -56,6 +57,7 @@
                     <p><strong>Accord :</strong> <span id="lcd-chord-chord"></span></p>
                     <p><strong>Notes :</strong> <span id="lcd-chord-notes"></span></p>
                     <p><strong>Description :</strong> <span id="lcd-chord-description"></span></p>
+
                     <div class="chord-display-control">
                         <!-- <label for="chord-variant-slider">Afficher : </label> -->
                         <select id="chord-variant-selector">
@@ -66,6 +68,7 @@
                         <canvas class="vf-canvas" id="lcd-vf-canvas"></canvas>
                     </div>
                     <!-- Clavier d'accordéon pour la première partie -->
+
                 </div>
                 <div class="lcd-controls">
                     <div class="lcd-flex">
@@ -81,6 +84,7 @@
                         <input type="range" id="lcd-volume-slider" min="0" max="1" step="0.01" value="0.7">
                     </div>
                 </div>
+
                 <div class="keyboard-selector">
                     <h3>Sélection du clavier 1 et 2</h3>
                     <select id="lcd-keyboard-type-1" class="keyboard-type-selector">
@@ -156,6 +160,9 @@
                 </div>
             </div>
 
+
+            </div>
+
         </div>
 
         <div class=" card" id="my-card">
@@ -179,6 +186,7 @@
                     <h2>Détails de l'accord</h2>
                     <p><strong>Notes :</strong> <span id="ns-chord-notes"></span></p>
                     <p><strong>Description :</strong> <span id="ns-chord-description"></span></p>
+
                     <div class="music-score-container">
                         <canvas class="vf-canvas" id="ns-vf-canvas"></canvas>
                     </div>
@@ -271,6 +279,21 @@
                                 </div>
                             </div>
                         </div>
+
+                </div>
+                <div class="ns-chords-controls">
+                    <div class="ns-flex">
+                        <button id="ns-play-chord-button">Jouer l'accord</button>
+                        <label class="play-time-duration-label">Durée de jeu en secondes
+                            <div class="play-time-duration">
+                                <input type="text" id="ns-play-duration">
+                            </div>
+                        </label>
+                        <button id="ns-play-stop">Arrêter l'accord</button>
+                    </div>
+                    <div class="volume-slider">
+                        <input type="range" id="ns-volume-slider" min="0" max="1" step="0.01" value="0.7">
+
                     </div>
                 </div>
             </div>
@@ -284,10 +307,15 @@
 
     <!--Les scripts communs -->
     <script src="/js/scripts_communs.js"></script>
+
     <script src="/js/script-findmychord.js"></script>
     <script src="/js/music-notation.js"></script>
     <script src="/js/piano-keyboard.js"></script>
     <!-- Script d'initialisation déplacé dans piano-keyboard.js -->
+
+
+    <script src="/js/script-findmychord.js"></script>
+
 
 
 </body>

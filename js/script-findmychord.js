@@ -1,5 +1,6 @@
 // script-findmychord.js
 
+
 // Constantes de couleurs pour les accords
 const CHORD_COLORS = {
     DEFAULT: 'black',
@@ -89,6 +90,7 @@ function updateNSNotation(notes, color = CHORD_COLORS.DEFAULT) {
     }
 }
 
+
 // DOM
 
 // constantes
@@ -116,6 +118,7 @@ let notesAccordTrouve = []; // Variable pour stocker les notes de l'accord trouv
 let currentAudioContext = null;
 let currentOscillators = [];
 let durationTimer = null;
+
 const audioPlayers = {};
 
 // Fonction pour nettoyer une chaîne de caractères
@@ -127,6 +130,19 @@ function cleanString(s) {
   s = s.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   // Modification ici : Conserve les caractères '+', '-' et le point-virgule
   return s.replace(/[^a-zA-Z0-9\s#;+-]/g, "");
+
+
+
+// Fonction pour nettoyer une chaîne de caractères
+function cleanString(s) {
+    if (s === null || s === undefined) {
+        return "";
+    }
+    s = s.trim();
+    s = s.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+    // Modification ici : Conserve le point-virgule
+    return s.replace(/[^a-zA-Z0-9\s#;]/g, "");
+
 }
 
 // Fonction pour charger le fichier CSV
@@ -158,11 +174,18 @@ async function chargerAccords() {
             console.log(`Parts ${i}:`, parts); // Ajout d'un log
 
             // Vérifie si la ligne a le bon nombre de colonnes
+
             if (parts.length >= 3) {
                 const accord = cleanString(parts[0]);
                 // Rejoint les parties des notes s'il y a des points-virgules dans la description des notes
                 const notes_str = parts.slice(1, parts.length - 1).join(';').trim();
                 const description = cleanString(parts[parts.length - 1]);
+
+            if (parts.length === 3) {
+                const accord = cleanString(parts[0]);
+                const notes_str = cleanString(parts[1]);
+                const description = cleanString(parts[2]);
+
 
                 console.log(`Accord ${i}:`, accord); // Ajout d'un log
                 console.log(`Notes_str ${i}:`, notes_str); // Ajout d'un log
@@ -174,9 +197,13 @@ async function chargerAccords() {
                     continue;
                 }
 
+
                 const notes = notes_str.split(';').map(noteGroup => 
                     noteGroup.replace(/\//g, "-").split("-").map(note => note.trim()).filter(note => note)
                 );
+
+                const notes = notes_str.replace("/", "-").split("-").map(note => note.trim()).filter(note => note);
+
 
                 // Ajout de la séparation basée sur le premier caractère
                 if (dernier_accord_premier_caractere && accord && accord[0].toLowerCase() !== dernier_accord_premier_caractere) {
@@ -184,7 +211,11 @@ async function chargerAccords() {
                 }
 
                 accords.push(accord);
+
                 accords_dict[accord.toLowerCase()] = notes; // notes is now an array of arrays
+
+                accords_dict[accord.toLowerCase()] = notes;
+
                 descriptions[accord.toLowerCase()] = description;
                 dernier_accord_premier_caractere = accord[0].toLowerCase() || null;
 
@@ -296,6 +327,11 @@ function updateMusicNotation(notesStr) {
 // Fonction pour afficher les détails d'un accord
 function afficherDetailsAccord(accordNom) {
     const chordName = document.getElementById("lcd-chord-chord");
+
+// Fonction pour afficher les détails d'un accord
+function afficherDetailsAccord(accordNom) {
+    const chordName = document.getElementById("lcd-chord-chord"); // Le nouvel élément pour le nom de l'accord
+
     const chordNotes = document.getElementById("lcd-chord-notes");
     const chordDescription = document.getElementById("lcd-chord-description");
 
@@ -388,6 +424,31 @@ function afficherDetailsAccord(accordNom) {
     oldSelector.addEventListener('change', (e) => {
         updateDisplayedNotes(e.target.value);
     });
+
+        // Efface tous les champs si la ligne est un séparateur
+        chordName.textContent = "";
+        chordNotes.textContent = "";
+        chordDescription.textContent = "";
+        return;
+    }
+
+    // Assurez-vous que le nom de l'accord est au bon format (en majuscules, comme vous le souhaitez)
+    chordName.textContent = accordNom.toUpperCase();
+
+    // Reste de la fonction
+    accordNom = accordNom.toLowerCase();
+    if (!accords_dict[accordNom]) {
+        chordNotes.textContent = "❌ Accord introuvable.";
+        chordDescription.textContent = "";
+        return;
+    }
+
+    const notes = accords_dict[accordNom];
+    const formattedNotes = notes.flatMap(noteGroup =>
+        noteGroup.split(/\s+|\s*-\s*/).map(note => note.trim())
+    );
+    chordNotes.textContent = formattedNotes.join(", ");
+    chordDescription.textContent = descriptions[accordNom] || "";
 }
 
 // Fonction pour gérer la recherche d'accords
@@ -531,6 +592,8 @@ function clearCheckboxes() {
 
     // 3. Appeler la fonction de recherche d'accord pour mettre à jour l'affichage
     //  Cela effacera l'accord trouvé et la description.
+
+    //    Cela effacera l'accord trouvé et la description.
     trouverAccordParNotes();
 }
 
@@ -602,6 +665,29 @@ function trouverAccordParNotes() {
             }
         }
         if (accordTrouve) break; // Exit outer loop if a match was found
+            let notesAccord = accords_dict[accordNom];
+            
+            // Normalise les notes de l'accord (gère les deux formats possibles avec /)
+            const notesAccordNormalisees = notesAccord.flatMap(noteGroup => {
+                const parts = noteGroup.split('/');
+                return parts.flatMap(part => 
+                    part.split(/\s+|\s*-\s*/).map(note => note.toLowerCase().trim())
+                );
+            });
+
+            // Convertit les notes en indices (sans doublons)
+            const indicesSelectionnes = [...new Set(notesSelectionnees.map(note => getNoteIndex(note)))].sort((a, b) => a - b);
+            const indicesAccord = [...new Set(notesAccordNormalisees.map(note => getNoteIndex(note)))].sort((a, b) => a - b);
+
+            // Vérifie si toutes les notes sélectionnées sont dans l'accord
+            // et si le nombre de notes uniques correspond
+            if (indicesSelectionnes.length === indicesAccord.length && 
+                indicesSelectionnes.every(index => indicesAccord.includes(index))) {
+                accordTrouve = accordNom;
+                notesAccordTrouve = notesAccordNormalisees;
+                break;
+            }
+        }
     }
 
     afficherResultatRecherche(accordTrouve);
@@ -644,7 +730,10 @@ function afficherResultatRecherche(accordTrouve) {
         
         console.log('NS - Notes à afficher:', notesAccordTrouve);
         // Mettre à jour les portées musicales avec la couleur par défaut
-        updateNSNotation(notesAccordTrouve, CHORD_COLORS.DEFAULT);
+        updateNSNotation(notesAccordTrouve, CHORD_COLORS.DEFAULT)
+        accordLabel.textContent = `Accord trouvé : ${accordTrouve.toUpperCase()}`;
+        chordNotesNS.textContent = notesAccordTrouve.join(", ");
+        chordDescriptionNS.textContent = descriptions[accordTrouve] || "";
     } else {
         accordLabel.textContent = "Aucun accord trouvé avec ces notes.";
         chordNotesNS.textContent = "";
@@ -781,6 +870,128 @@ function arreterAccordIndep(playerId) {
 
     delete audioPlayers[playerId];
 }
+
+
+                jouerAccordAvecControleVolume(notesArray, "lcd-volume-slider");
+            }
+        }
+    });
+}
+
+const nsPlayChordButton = document.getElementById("ns-play-chord-button");
+nsPlayChordButton.addEventListener("click", () => {
+    jouerAccordAvecControleVolume(notesAccordTrouve, "ns-volume-slider");
+});
+
+
+// Fonction pour jouer un accord (à implémenter avec l'API Web Audio)
+function jouerAccord(notes, volumeSliderId) {
+    const volumeSlider = document.getElementById(volumeSliderId);
+    if (!volumeSlider) {
+        console.error(`Slider avec l'ID "${volumeSliderId}" introuvable`);
+        return;
+    }
+    if (typeof AudioContext !== "undefined" || typeof webkitAudioContext !== "undefined") {
+        if (Array.isArray(notes)) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const volumeControl = audioContext.createGain();
+            volumeControl.connect(audioContext.destination);
+
+            const volumeSlider = document.getElementById(volumeSliderId);
+            volumeControl.gain.value = volumeSlider.value;
+
+            // Écouter les changements de volume
+            volumeSlider.addEventListener("input", () => {
+                volumeControl.gain.value = volumeSlider.value;
+            });
+
+            const volumePerNote = 1.0 / Math.sqrt(notes.length);
+
+            notes.forEach(note => {
+                const frequency = noteToFrequency(note);
+                if (frequency) {
+                    const oscillator = audioContext.createOscillator();
+                    oscillator.type = "sine";
+                    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+
+                    const noteVolumeControl = audioContext.createGain();
+                    noteVolumeControl.gain.value = volumeControl.gain.value * volumePerNote;
+                    oscillator.connect(noteVolumeControl);
+                    noteVolumeControl.connect(volumeControl);
+
+                    oscillator.start();
+                    oscillator.stop(audioContext.currentTime + 2);
+                }
+            });
+        } else {
+            console.warn("jouerAccord a reçu une valeur non valide pour les notes:", notes);
+        }
+    } else {
+        console.warn("L'API Web Audio n'est pas supportée par ce navigateur.");
+    }
+}
+
+
+// Fonction pour jouer un accord avec un contrôle de volume indépendant
+function jouerAccordAvecControleVolume(notes, volumeSliderId, durationInputId) {
+    // Si un accord est déjà en cours, on l'arrête avant de commencer le nouveau
+    arreterAccord();
+
+    if (typeof AudioContext !== "undefined" || typeof webkitAudioContext !== "undefined") {
+        if (Array.isArray(notes) && notes.length > 0) {
+            currentAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const volumeControl = currentAudioContext.createGain();
+            volumeControl.connect(currentAudioContext.destination);
+
+            const volumeSlider = document.getElementById(volumeSliderId);
+            const durationInput = document.getElementById(durationInputId);
+
+            // Vérifie le volume, si le slider est présent
+            if (volumeSlider) {
+                volumeControl.gain.value = volumeSlider.value;
+                volumeSlider.addEventListener("input", () => {
+                    volumeControl.gain.value = volumeSlider.value;
+                });
+            } else {
+                volumeControl.gain.value = 0.7; // Valeur par défaut
+            }
+
+            const volumePerNote = 1.0 / Math.sqrt(notes.length);
+
+            notes.forEach(note => {
+                const frequency = noteToFrequency(note);
+                if (frequency) {
+                    const oscillator = currentAudioContext.createOscillator();
+                    oscillator.type = "sine";
+                    oscillator.frequency.setValueAtTime(frequency, currentAudioContext.currentTime);
+
+                    const noteVolumeControl = currentAudioContext.createGain();
+                    noteVolumeControl.gain.value = volumeControl.gain.value * volumePerNote;
+                    oscillator.connect(noteVolumeControl);
+                    noteVolumeControl.connect(volumeControl);
+
+                    oscillator.start();
+                    currentOscillators.push(oscillator); // Stocke l'oscillateur pour pouvoir l'arrêter
+                }
+            });
+
+            // Gère la durée de lecture
+            const durationValue = parseInt(durationInput.value, 10);
+            if (!isNaN(durationValue) && durationValue > 0) {
+                durationTimer = setTimeout(() => {
+                    arreterAccord();
+                }, durationValue * 1000); // Convertit la durée en secondes
+            }
+
+        } else {
+            console.warn("jouerAccord a reçu une valeur non valide pour les notes:", notes);
+        }
+    } else {
+        console.warn("L'API Web Audio n'est pas supportée par ce navigateur.");
+    }
+}
+
+
 
 
 // Définir noteToFrequency comme une fonction globale
@@ -992,6 +1203,66 @@ document.addEventListener("DOMContentLoaded", () => {
     creerClavierAccordeon('lcd-accordion-keyboard-2', 'c');
     creerClavierAccordeon('ns-accordion-keyboard-1', 'c');
     creerClavierAccordeon('ns-accordion-keyboard-2', 'c');
+// Fonction pour arrêter l'accord en cours
+function arreterAccord() {
+    // Si un timer est en cours, on l'annule
+    if (durationTimer) {
+        clearTimeout(durationTimer);
+        durationTimer = null;
+    }
+
+    // Arrête tous les oscillateurs en cours
+    currentOscillators.forEach(oscillator => {
+        try {
+            oscillator.stop();
+        } catch (e) {
+            console.error("Erreur lors de l'arrêt de l'oscillateur :", e);
+        }
+    });
+    currentOscillators = [];
+
+    // Ferme l'AudioContext si il existe
+    if (currentAudioContext) {
+        currentAudioContext.close().then(() => {
+            currentAudioContext = null;
+        }).catch(e => {
+            console.error("Erreur lors de la fermeture de l'AudioContext :", e);
+            currentAudioContext = null;
+        });
+    }
+}
+
+
+
+
+
+
+const card = document.getElementById('my-card');
+const resizer = document.getElementById('right-resizer');
+
+resizer.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+
+    // Position initiale de la souris et largeur de la carte
+    const initialX = e.clientX;
+    const initialWidth = card.offsetWidth;
+
+    // Fonction de redimensionnement
+    const resizeCard = (e) => {
+        const newWidth = initialWidth + (e.clientX - initialX);
+        card.style.width = `${newWidth}px`;
+    };
+
+    // Fonctions d'écoute
+    document.addEventListener('mousemove', resizeCard);
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener('mousemove', resizeCard);
+    });
+});
+
+
+// Écouteurs d'événements
+document.addEventListener("DOMContentLoaded", () => {
 
     // Charger les accords et mettre en place les écouteurs
     chargerAccords();
@@ -1044,6 +1315,90 @@ document.addEventListener("DOMContentLoaded", () => {
     if (excludeFlatsCheckbox) excludeFlatsCheckbox.addEventListener("change", gererRecherche);
     if (excludeNaturalsCheckbox) excludeNaturalsCheckbox.addEventListener("change", gererRecherche);
 
+    nsFindChordButton.addEventListener("click", trouverAccordParNotes);
+
+    // Bouton PLAY de la liste d'accords
+    const lcdPlayButton = document.getElementById("lcd-play-button");
+    if (lcdPlayButton) {
+        lcdPlayButton.addEventListener("click", () => {
+            const chordNotesText = document.getElementById("lcd-chord-notes").textContent.trim();
+            if (chordNotesText) {
+                const notesArray = chordNotesText.split(',').map(n => n.trim());
+                // Appelle la fonction mise à jour
+                jouerAccordAvecControleVolume(notesArray, "lcd-volume-slider", "lcd-play-duration");
+            }
+        });
+    }
+
+    // Bouton STOP de la liste d'accords
+    const lcdPlayStopButton = document.getElementById("lcd-play-stop");
+    if (lcdPlayStopButton) {
+        lcdPlayStopButton.addEventListener("click", () => {
+            arreterAccord();
+        });
+    }
+
+    // Bouton PLAY du sélecteur de notes
+    const nsPlayChordButton = document.getElementById("ns-play-chord-button");
+    nsPlayChordButton.addEventListener("click", () => {
+        // Appelle la fonction mise à jour
+        jouerAccordAvecControleVolume(notesAccordTrouve, "ns-volume-slider", "ns-play-duration");
+    });
+
+    // Bouton STOP du sélecteur de notes
+    const nsPlayStopButton = document.getElementById("ns-play-stop");
+    if (nsPlayStopButton) {
+        nsPlayStopButton.addEventListener("click", () => {
+            arreterAccord();
+        });
+    }
+
+
+    // Ajout de l'écouteur pour le bouton de décochage des cases
+    const clearCheckboxesButton = document.getElementById("clear-checkboxes-button");
+    clearCheckboxesButton.addEventListener("click", () => {
+        clearCheckboxes();
+        trouverAccordParNotes();
+    });
+
+    // Écouteur d'événements pour la case à cocher de MAJ automatique
+    const autoUpdateCheckbox = document.getElementById("ns-auto-update-checkbox");
+    autoUpdateCheckbox.addEventListener("change", (event) => {
+        if (event.target.checked) {
+            autoUpdateAccord();
+        }
+    });
+
+    // Écouteur d'événements pour les checkboxes des notes
+    const noteCheckboxesContainer = document.getElementById("note-checkboxes");
+    noteCheckboxesContainer.addEventListener("change", (event) => {
+        if (event.target.type === "checkbox") {
+            const autoUpdateCheckbox = document.getElementById("ns-auto-update-checkbox");
+            if (autoUpdateCheckbox.checked) {
+                autoUpdateAccord(); // Vérifiez et mettez à jour automatiquement l'accord
+            }
+        }
+    });
+});
+
+// Ajoute un écouteur d'événements pour le bouton "Jouer l'accord"
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search-input");
+    const excludeSharpsCheckbox = document.getElementById("exclude-sharps");
+    const excludeFlatsCheckbox = document.getElementById("exclude-flats");
+    const excludeNaturalsCheckbox = document.getElementById("exclude-naturals");
+    const playChordButton = document.getElementById("play-chord-button"); // Récupère le bouton "Jouer l'accord"
+    const chordList = document.getElementById("chord-list"); // Récupère la liste des accords
+
+    // Ajoute un écouteur d'événements pour le champ de recherche
+    searchInput.addEventListener("input", gererRecherche);
+
+    // Ajoute des écouteurs d'événements pour les cases à cocher
+    excludeSharpsCheckbox.addEventListener("change", gererRecherche);
+    excludeFlatsCheckbox.addEventListener("change", gererRecherche);
+    excludeNaturalsCheckbox.addEventListener("change", gererRecherche);
+
+    // Ajoute un écouteur d'événements pour le bouton "Jouer l'accord"
 
     // Initialise l'affichage des accords
     gererRecherche();
